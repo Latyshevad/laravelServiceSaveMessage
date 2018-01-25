@@ -11,10 +11,15 @@
 |
 */
 
+use App\Message;
+
 Route::get('/', function () {
 
+    $messages = Message::getAllMessages();
+
     $arr = [
-        'pageTitle'=>'Главная'
+        'pageTitle'=>'Главная',
+        'messages'=>$messages
     ];
 
     return view('main', $arr);
