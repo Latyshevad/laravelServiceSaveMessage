@@ -12,5 +12,25 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $arr = [
+        'pageTitle'=>'Главная'
+    ];
+
+    return view('main', $arr);
+});
+
+Route::get('/login', function(){
+    $arr = [
+        'pageTitle'=>'Вход'
+    ];
+
+    return view('login', $arr);
+});
+
+Route::get('/reg', function(){
+    $arr = [
+        'pageTitle'=>'Регистрация'
+    ];
+
+    return view('reg', $arr);
 });
