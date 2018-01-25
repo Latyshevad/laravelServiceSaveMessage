@@ -14,9 +14,10 @@
     <div class="span8">
 
         <form action="" method="post" class="form-horizontal" style="margin-bottom: 50px;">
-            <div class="alert alert-error">
-                Сообщение не может быть пустым
-            </div>
+            {{--<div class="alert alert-error">--}}
+                {{--Сообщение не может быть пустым--}}
+            {{--</div>--}}
+            @include('layouts.errors')
 
             <div class="control-group">
                 <textarea style="width: 100%; height: 50px;" type="password" id="inputText" placeholder="Ваше сообщение..."

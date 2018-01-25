@@ -14,11 +14,9 @@
     <div class="span4"></div>
     <div class="span3">
 
-        <div class="alert alert-error">
-            Вход в систему с указанными данными невозможен
-        </div>
+        @include('layouts.errors')
 
-        <form action="" method="post" class="form-horizontal">
+        <form action="/login" method="post" class="form-horizontal">
             <div class="control-group">
                 <b>Авторизация</b>
             </div>

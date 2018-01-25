@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+
     $arr = [
         'pageTitle'=>'Главная'
     ];

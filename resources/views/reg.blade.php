@@ -14,6 +14,8 @@
         <div class="span4"></div>
         <div class="span8">
 
+            @include('layouts.errors')
+
             <form action="" method="post" class="form-horizontal">
                 <div class="control-group">
                     <b>Регистрация</b>
