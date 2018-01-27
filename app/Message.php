@@ -19,4 +19,9 @@ class Message extends Model
                 ->orderBy('messages.id', 'desc')
                 ->get();
     }
+
+    public static function insertMessage($idUser, $textMessage){
+        return DB::table('messages')
+            ->insert(['user_id'=>$idUser, 'text_message'=>$textMessage]);
+    }
 }

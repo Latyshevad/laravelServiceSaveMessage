@@ -18,15 +18,15 @@
                 Добавлять сообщения могут только авторизованные пользователи
             </div>
         @else
-        <form action="" method="post" class="form-horizontal" style="margin-bottom: 50px;">
+        <form action="/" method="post" class="form-horizontal" style="margin-bottom: 50px;">
+            {{ csrf_field() }}
             {{--<div class="alert alert-error">--}}
                 {{--Сообщение не может быть пустым--}}
             {{--</div>--}}
             @include('layouts.errors')
 
             <div class="control-group">
-                <textarea style="width: 100%; height: 50px;" type="password" id="inputText" placeholder="Ваше сообщение..."
-                          data-cip-id="inputText"></textarea>
+                <textarea style="width: 100%; height: 50px;" name="textMessage" type="text" id="inputText" placeholder="Ваше сообщение..." data-cip-id="inputText" required></textarea>
             </div>
             <div class="control-group">
                 <button type="submit" class="btn btn-primary">Отправить сообщение</button>
@@ -37,8 +37,8 @@
         @if(count($messages)>0)
             @foreach($messages as $message)
                 <div class="well">
-                    <h5>Eugene:</h5>
-                    Привет! Как твои дела?
+                    <h5>{{$message->name}}:</h5>
+                    {{$message->text_message}}
                 </div>
             @endforeach
         @else
