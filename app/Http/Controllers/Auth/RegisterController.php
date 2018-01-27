@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -67,5 +68,18 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Действие после успешной регистрации
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function success(){
+        $userInfo = (Auth::check()) ? Auth::user()->name : '';
+
+        $arr = [
+            'userName' => $userInfo
+        ];
+        return view('reg_success',$arr);
     }
 }
