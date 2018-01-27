@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{$pageTitle}} - Сайтсофт</title>
+    <title>Сайтсофт</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" media="screen">
     <script src="{{url('http://code.jquery.com/jquery.js')}}"></script>

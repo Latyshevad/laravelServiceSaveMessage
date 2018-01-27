@@ -12,31 +12,32 @@
 */
 
 use App\Message;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
     $messages = Message::getAllMessages();
+    $userInfo = (Auth::check()) ? Auth::user()->name : '';
 
     $arr = [
-        'pageTitle'=>'Главная',
-        'messages'=>$messages
+        'pageTitle' => 'Главная',
+        'messages' => $messages,
+        'userName' => $userInfo
     ];
 
     return view('main', $arr);
 });
 
-Route::get('/login', function(){
-    $arr = [
-        'pageTitle'=>'Вход'
-    ];
-
-    return view('login', $arr);
+Route::get('/reg_success', function () {
+    return view('reg_success');
 });
 
-Route::get('/reg', function(){
-    $arr = [
-        'pageTitle'=>'Регистрация'
-    ];
-
-    return view('reg', $arr);
+Route::get('/logout', function(){
+    Auth::logout();
+    return redirect('/');
 });
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

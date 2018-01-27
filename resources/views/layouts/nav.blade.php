@@ -11,16 +11,18 @@
     <div class="navbar">
         <div class="navbar-inner">
             <a class="brand" href="/">Сайтсофт</a>
+            @if(Auth::guest())
             <ul class="nav">
                 <li class="active"><a href="/">Главная</a></li>
-                <li><a href="/login">Авторизация</a></li>
-                <li><a href="/reg">Регистрация</a></li>
+                <li><a href="{{route('login')}}">Авторизация</a></li>
+                <li><a href="{{route('register')}}">Регистрация</a></li>
             </ul>
-
+            @else
             <ul class="nav pull-right">
-                <li><a>Username</a></li>
-                <li><a href="/logout">Выход</a></li>
+                <li><a>{{$userName}}</a></li>
+                <li><a href="{{route('logout')}}">Выход</a></li>
             </ul>
+            @endif
         </div>
     </div>
 @endsection

@@ -13,6 +13,11 @@
     <div class="span2"></div>
     <div class="span8">
 
+        @if(Auth::guest())
+            <div class="alert alert-info">
+                Добавлять сообщения могут только авторизованные пользователи
+            </div>
+        @else
         <form action="" method="post" class="form-horizontal" style="margin-bottom: 50px;">
             {{--<div class="alert alert-error">--}}
                 {{--Сообщение не может быть пустым--}}
@@ -27,6 +32,7 @@
                 <button type="submit" class="btn btn-primary">Отправить сообщение</button>
             </div>
         </form>
+        @endif
 
         @if(count($messages)>0)
             @foreach($messages as $message)
