@@ -39,13 +39,12 @@ class MessageController extends Controller
         $result = Message::checkInsertData($request->input('textMessage'));
         if($result) {
             Message::insertMessage(Auth::user()->id, $request->input('textMessage'));
-            $ansver = 'Сообщение отправленно.'; // Ответ о выполнении. Вообще эту магическую строку нужно менять на языковую переменную или константу.
+            $ansver = trans('ansvers.sendMessage'); // Ответ о выполнении.
             $typeAnsver = TYPE_ANSVER_SUCCESS;
         }else{
-            $ansver = 'Сообщение не может быть пустым или состоять только из пробелов.'; // И снова магия...
+            $ansver = trans('ansvers.errorMessage'); // Ответ об ошибке
             $typeAnsver = TYPE_ANSVER_ERROR;
         }
-//        return redirect('/?ansver='.$ansver.'&typeAnsver=');
         return redirect()->action('MessageController@show', ['ansver'=>$ansver, 'typeAnsver'=>$typeAnsver]);
     }
 }
