@@ -7,14 +7,9 @@
  */
 ?>
 
-@if ($errors->any())
-<div class="alert alert-error">
-    <!--Вход в систему с указанными данными невозможен-->
-    <ul>
-        @foreach($errors->all() as $error)
-        <li>{{$error}}</li>
-        @endforeach
-    </ul>
+@if ($ansver!==false)
+<div class="alert @if($typeAnsver)alert-{{$typeAnsver}}@endif">
+    {{$ansver}}
 </div>
 @endif
 
