@@ -7,7 +7,7 @@
  */
 ?>
 
-@if (count($errors)>0)
+@if ($errors->any())
 <div class="alert alert-error">
     <!--Вход в систему с указанными данными невозможен-->
     <ul>
