@@ -20,7 +20,7 @@ Route::post('/','MessageController@insert');
 
 Route::get('/reg_success', 'Auth\RegisterController@success');
 
-Route::get('/logout', function () { // Стандартный logout не заработал.
+Route::get('/logout', function () { // Стандартный logout не заработал, сделал свой.
     Auth::logout();
     return redirect('/');
 });

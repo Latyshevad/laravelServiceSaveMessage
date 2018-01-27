@@ -9,11 +9,9 @@ use App\Message;
 class MessageController extends Controller
 {
     public function show(Message $messages){
-        $userInfo = (Auth::check()) ? Auth::user()->name : '';
-
         $arr = [
             'messages' => $messages::getAllMessages(),
-            'userName' => $userInfo
+            'userName' => (Auth::check()) ? Auth::user()->name : ''
         ];
 
         return view('main', $arr);
