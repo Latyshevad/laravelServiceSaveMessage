@@ -26,7 +26,7 @@
             @include('layouts.errors')
 
             <div class="control-group">
-                <textarea style="width: 100%; height: 50px;" name="textMessage" type="text" id="inputText" placeholder="Ваше сообщение..." data-cip-id="inputText" required></textarea>
+                <textarea style="width: 100%; height: 50px;" name="textMessage" type="text" id="inputText" placeholder="Ваше сообщение..." data-cip-id="inputText" ></textarea>
             </div>
             <div class="control-group">
                 <button type="submit" class="btn btn-primary">Отправить сообщение</button>
