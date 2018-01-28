@@ -36,4 +36,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * Переопределяем поле Username с email на name (он же логин)
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'name';
+    }
 }

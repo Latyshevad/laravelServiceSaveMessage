@@ -10,14 +10,14 @@
                     <b>Авторизация</b>
                 </div>
 
-                <div class="control-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                <div class="control-group{{ $errors->has('name') ? ' has-error' : '' }}">
                     <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}"
+                        <input id="email" type="text" class="form-control" name="name" value="{{ old('name') }}"
                                placeholder="Логин" required autofocus>
 
-                        @if ($errors->has('email'))
+                        @if ($errors->has('name'))
                             <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                         @endif
                     </div>
