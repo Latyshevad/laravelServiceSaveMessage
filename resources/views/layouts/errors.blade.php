@@ -7,12 +7,6 @@
  */
 ?>
 
-@if ($ansver!==false)
-<div class="alert @if($typeAnsver)alert-{{$typeAnsver}}@endif">
-    {{$ansver}}
-</div>
-@endif
-
 @if($errors)
     @foreach($errors->all() as $error)
     <div class="alert alert-error">

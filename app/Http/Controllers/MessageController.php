@@ -7,13 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Message;
 
-/*
-    Эти константы предоставил, что бы не было магических строк и была возможность централицовано менять тип сообщения.
-    Внимание! Константы используются в представлении и описывают часть класса "alert-". По-этому использовать нужно значения которые есть в стилях шаблона.
-*/
-define('TYPE_ANSVER_ERROR', 'error'); // Констатнта типа ошибка
-define('TYPE_ANSVER_SUCCESS', 'success'); // Константа типа выполненно
-
 class MessageController extends Controller
 {
     /**
@@ -23,13 +16,9 @@ class MessageController extends Controller
      */
     public function show(Message $messages, Request $request)
     {
-        ($request->ansver) ? $ansver = $request->ansver : $ansver = false; // Если есть ответ от сервера - показываем его
-        ($request->typeAnsver) ? $typeAnsver = $request->typeAnsver : $typeAnsver = false; // Если есть ответ от сервера - показываем его
         $arr = [
             'messages' => $messages::getAllMessages(),
-            'userName' => (Auth::check()) ? Auth::user()->name : '',
-            'ansver' => $ansver,
-            'typeAnsver' => $typeAnsver
+            'userName' => (Auth::check()) ? Auth::user()->name : ''
         ];
 
         return view('main', $arr);
